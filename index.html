@@ -1,134 +1,251 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <title>Unity Web Player | Exhibit I</title>
-        <script type='text/javascript' src='https://ssl-webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/jquery.min.js'></script>
-        <script type="text/javascript">
-        <!--
-        var unityObjectUrl = "http://webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/UnityObject2.js";
-        if (document.location.protocol == 'https:')
-            unityObjectUrl = unityObjectUrl.replace("http://", "https://ssl-");
-        document.write('<script type="text\/javascript" src="' + unityObjectUrl + '"><\/script>');
-        -->
-        </script>
-        <script type="text/javascript">
-        <!--
-            jQuery(function() {
-                var config = {
-                    width: 960, 
-                    height: 600,
-                    params: { enableDebugging:"0" }
-                };
-                var u = new UnityObject2(config);
+<!DOCTYPE html>
 
-                var $missingScreen = jQuery("#unityPlayer").find(".missing");
-                var $brokenScreen = jQuery("#unityPlayer").find(".broken");
-                $missingScreen.hide();
-                $brokenScreen.hide();
-                
-                u.observeProgress(function (progress) {
-                    switch(progress.pluginStatus) {
-                        case "broken":
-                            $brokenScreen.find("a").click(function (e) {
-                                e.stopPropagation();
-                                e.preventDefault();
-                                u.installPlugin();
-                                return false;
-                            });
-                            $brokenScreen.show();
-                        break;
-                        case "missing":
-                            $missingScreen.find("a").click(function (e) {
-                                e.stopPropagation();
-                                e.preventDefault();
-                                u.installPlugin();
-                                return false;
-                            });
-                            $missingScreen.show();
-                        break;
-                        case "installed":
-                            $missingScreen.remove();
-                        break;
-                        case "first":
-                        break;
-                    }
-                });
-                u.initPlugin(jQuery("#unityPlayer")[0], "ExhibitI.unity3d");
-            });
-        -->
-        </script>
-        <style type="text/css">
-        <!--
-        body {
-            font-family: Helvetica, Verdana, Arial, sans-serif;
-            background-color: #151515;
-            color: black;
-            text-align: center;
-        }
-        a:link, a:visited {
-            color: #000;
-        }
-        a:active, a:hover {
-            color: #666;
-        }
-        p.header {
-            font-size: small;
-        }
-        p.header span {
-            font-weight: bold;
-        }
-        p.footer {
-            font-size: x-small;
-        }
-        div.content {
-            margin: auto;
-            width: 960px;
-        }
-        div.broken,
-        div.missing {
-            margin: auto;
-            position: relative;
-            top: 50%;
-            width: 193px;
-        }
-        div.broken a,
-        div.missing a {
-            height: 63px;
-            position: relative;
-            top: -31px;
-        }
-        div.broken img,
-        div.missing img {
-            border-width: 0px;
-        }
-        div.broken {
-            display: none;
-        }
-        div#unityPlayer {
-            cursor: default;
-            height: 600px;
-            width: 960px;
-        }
-        -->
-        </style>
-    </head>
-    <body>
-        <p class="header"><span>Unity Web Player | </span>Exhibit I</p>
-        <div class="content">
-            <div id="unityPlayer">
-                <div class="missing">
-                    <a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now!">
-                        <img alt="Unity Web Player. Install now!" src="http://webplayer.unity3d.com/installation/getunity.png" width="193" height="63" />
-                    </a>
-                </div>
-                <div class="broken">
-                    <a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now! Restart your browser after install.">
-                        <img alt="Unity Web Player. Install now! Restart your browser after install." src="http://webplayer.unity3d.com/installation/getunityrestart.png" width="193" height="63" />
-                    </a>
-                </div>
-            </div>
-        </div>
-        <p class="footer">&laquo; created with <a href="http://unity3d.com/unity/" title="Go to unity3d.com">Unity</a> &raquo;</p>
-    </body>
+<!--
+    ___       ___       ___       ___       ___            ___       ___       ___       ___   
+   /\  \     /\  \     /\  \     /\  \     /\  \          /\  \     /\  \     /\  \     /\__\  
+  /::\  \   /::\  \   /::\  \   _\:\  \   /::\  \        /::\  \    \:\  \   /::\  \   /::L_L_ 
+ /:/\:\__\ /::\:\__\ /::\:\__\ /\/::\__\ /:/\:\__\      /\:\:\__\   /::\__\ /::\:\__\ /:/L:\__\
+ \:\ \/__/ \;:::/  / \/\::/  / \::/\/__/ \:\:\/__/      \:\:\/__/  /:/\/__/ \/\::/  / \/_/:/  /
+  \:\__\    |:\/__/    /:/  /   \:\__\    \::/  /        \::/  /  /:/__/      /:/  /    /:/  / 
+   \/__/     \|__|     \/__/     \/__/     \/__/          \/__/   \/__/       \/__/     \/__/  
+-->
+
+<html>
+
+<head>
+
+	<link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=PT+Sans|Amiri">
+
+	<link rel="icon" href="/Users/cstamatelaky/Creative Cloud Files/craigicon.ico">
+
+<title>CRAIG STAM</title>
+
+<style>
+	html{
+		width:100%;
+		cursor: crosshair;
+	}
+	body{
+		background: #FFFFFF;
+		margin: 25px;
+	}
+
+	a{
+		color: #AF0017;
+		text-decoration: none;
+	}
+
+	a:hover{
+		color: #FFC416;
+		font-style: italic;
+	}
+
+	a.menu{
+		color: #FFFFFF;
+		-webkit-text-fill-color: #FFFFFF;
+		-webkit-text-stroke: 1px #AF0017;
+	}
+
+	a.menu:hover{
+		color: #FFC416;
+		-webkit-text-fill-color: #FFC416;
+		-webkit-text-stroke: 1px #FFFFFF;
+	}
+
+	@-webkit-keyframes hvr-bob {
+ 		0% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  	}
+  	50% {
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+ 	}
+  	100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  		}
+	}
+	@keyframes hvr-bob {
+  	0% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  	}
+  	50% {
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+  		}
+  	100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  		}
+	}
+	@-webkit-keyframes hvr-bob-float {
+ 	100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  		}
+	}
+	@keyframes hvr-bob-float {
+  	100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  		}
+	}
+
+	.hvr-bob {
+	  	display: inline-block;
+	  	vertical-align: middle;
+	  	-webkit-transform: perspective(1px) translateZ(0);
+	  	transform: perspective(1px) translateZ(0);
+	  	box-shadow: 0 0 1px transparent;
+	}
+
+	.hvr-bob:hover, .hvr-bob:focus, .hvr-bob:active {
+		-webkit-animation-name: hvr-bob-float, hvr-bob;
+		animation-name: hvr-bob-float, hvr-bob;
+		-webkit-animation-duration: .3s, 1.5s;
+		animation-duration: .3s, 1.5s;
+		-webkit-animation-delay: 0s, .3s;
+		animation-delay: 0s, .3s;
+		-webkit-animation-timing-function: ease-out, ease-in-out;
+		animation-timing-function: ease-out, ease-in-out;
+		-webkit-animation-iteration-count: 1, infinite;
+		animation-iteration-count: 1, infinite;
+		-webkit-animation-fill-mode: forwards;
+		animation-fill-mode: forwards;
+		-webkit-animation-direction: normal, alternate;
+		animation-direction: normal, alternate;
+	}
+
+	#heading{
+	    font-family: 'Amiri', serif;
+		font-size: 40pt;
+		letter-spacing: 25px;
+		color: #FFFFFF;
+		width: 100%;
+		text-align: center;
+		position: fixed;
+		z-index: +1;
+	}
+
+	#work{
+	    font-family: 'Amiri', serif;
+		top: 90%;
+		font-size: 40pt;
+		letter-spacing: 10px;
+		position: fixed;
+		z-index: +1;
+	}
+
+	#info{
+		font-family: 'Amiri', serif;
+		top: 90%;
+		right: 1%;
+		font-size: 40pt;
+		letter-spacing: 10px;
+		position: fixed;
+		z-index: +1;
+	}
+
+	.box{
+	    display: inline-block;
+	    max-width: 100%;
+	    width: 800px;
+	    height: 600px;
+	    margin: 3px; 
+	}
+
+	#thumb{
+		max-width: 100%;
+		width: 800px;
+	}
+
+	#description{
+    	font-family: 'PT Sans', sans-serif;
+		max-width: 100%;
+		max-width: 100%;
+		width: 800px;
+		font-size: 11pt;
+		letter-spacing: 1px;
+	}
+
+</style>
+
+</head>
+
+<body>
+	
+	<div id="heading"><a class="menu" href="http://craigstam.com/">CRAIG STAM</a></div><p>
+
+	<div id="work"><a class="menu" href="http://craigstam.com/work">WORK</a></div>
+
+	<div id="info"><a class="menu" href="http://craigstam.com/info">INFO</a></div>
+
+	<center>
+	
+	<br><br><br><br><br><br><br><br><br>
+
+	<div class="box">
+	<a href="http://craigstam.com/offchance">
+		<img src="/Users/cstamatelaky/Creative Cloud Files/offchancethumb.jpg" div id="thumb" class="hvr-bob">
+		<br>
+		<div id="description">OFF CHANCE (925)</a> is a video lesson pseudo-narrative on how to turn your 9-5 office building into a doomsday bunker.</div>
+	</div>
+
+	<div class="box">
+	<a href="http://craigstam.com/falsetranscription">
+		<img src="/Users/cstamatelaky/Creative Cloud Files/falsetranscriptionthumb.jpg" div id="thumb" class="hvr-bob">
+		<br>
+		<div id="description">FALSE TRANSCRIPTION (MARIKINA CITY)</a> is a digital environment exploring personal FilAm diaspora through filmset.</div>
+	</div>
+
+	<div class="box">
+	<a href="http://craigstam.com/datedaterevolution">
+		<img src="/Users/cstamatelaky/Creative Cloud Files/datedaterevolutionthumb.jpg" div id="thumb" class="hvr-bob">
+		<br>
+		<div id="description">DATEDATEREVOLUTION</a> is an interactive installation where the player must use their environment to  date and dance at the same time.</div>
+	</div>
+
+	<div class="box">
+	<a href="http://craigstam.com/themerchantispresent">
+		<img src="/Users/cstamatelaky/Creative Cloud Files/merchantispresentthumb.jpg" div id="thumb" class="hvr-bob">
+		<br>
+		<div id="description">THE MERCHANT IS PRESENT</a> is a pop-up shop where the merchant is there but never does business with you.</div>
+	</div>
+
+	<div class="box">
+	<a href="http://craigstam.com/limitedtimeonly">
+		<img src="/Users/cstamatelaky/Creative Cloud Files/limitedtimeonlythumb.jpg" div id="thumb" class="hvr-bob">
+		<br>
+		<div id="description">LIMITED TIME ONLY (ORDER NOW)</a> is an infomercial and playdate on hand-me-down and used toys.</div>
+	</div>
+
+	<div class="box">
+	<a href="http://craigstam.com/sometime">
+		<img src="/Users/cstamatelaky/Creative Cloud Files/sometimethumb.jpg" div id="thumb" class="hvr-bob">
+		<br>
+		<div id="description">SOME TIME.</a> is probably a video poem on maybe being able to do something or other at any point in time.</div>
+	</div>
+
+	<div class="box">
+	<a href="http://craigstam.com/craigisdead">
+		<img src="/Users/cstamatelaky/Creative Cloud Files/craigisdeadthumb.jpg" div id="thumb" class="hvr-bob">
+		<br>
+		<div id="description">CRAIG IS DEAD</a> is a facebook-based funerary community commemorating or mourning the passing of Craig/me/myself/I/him.</div>
+	</div>
+
+	<div class="box">
+	<a href="http://craigstam.com/ageisjustanumber">
+		<img src="/Users/cstamatelaky/Creative Cloud Files/ageisjustanumberthumb.jpg" div id="thumb" class="hvr-bob">
+		<br>
+		<div id="description">AGE IS JUST A NUMBER (YOUTH FULL)</a> is a year-long lie where age doesn't matter anymore.</div>
+	</div>
+
+	</center>
+	</div>
+
+</body>
+
 </html>
